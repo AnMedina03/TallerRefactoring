@@ -7,7 +7,7 @@ public class Estudiante {
     public String matricula;
     public String nombre;
     public String apellido;
-    public String facultad;
+    public Facultad facultad;
     public int edad;
     public String direccion;
     public String telefono;
@@ -37,11 +37,11 @@ public class Estudiante {
         this.apellido = apellido;
     }
 
-    public String getFacultad() {
+    public Facultad getFacultad() {
         return facultad;
     }
 
-    public void setFacultad(String facultad) {
+    public void setFacultad(Facultad facultad) {
         this.facultad = facultad;
     }
 
