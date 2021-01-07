@@ -15,12 +15,6 @@ public class Ayudante {
     public void setMatricula(String matricula) {
         est.setMatricula(matricula);
     }
-    public String getNombre() {
-        return est.getNombre();
-    }
-    public String getApellido() {
-        return est.getApellido();
-    }
     public void MostrarParalelos(){
         for(Paralelo par:paralelos){
             //Muestra la info general de cada paralelo
