@@ -2,12 +2,12 @@ package modelos;
 
 public class Materia {
 
-    public String codigo;
-    public String nombre;
-    public Facultad facultad;
-    public double notaInicial;
-    public double notaFinal;
-    public double notaTotal;
+    private String codigo;
+    private String nombre;
+    private Facultad facultad;
+    private double notaInicial;
+    private double notaFinal;
+    private double notaTotal;
 
     public double getNotaInicial() {
         return notaInicial;
@@ -15,10 +15,12 @@ public class Materia {
 
     public void setNotaInicial(double nexamen, double ndeberes, double nlecciones, double ntalleres) {
         this.notaInicial = calcularNota(nexamen, ndeberes, nlecciones, ntalleres);
+        this.notaTotal = (getNotaFinal() + getNotaFinal())/2;
     }
 
     public void setNotaInicial(double notaInicial){
         this.notaInicial = notaInicial;
+        this.notaTotal = (notaInicial + getNotaFinal())/2;
     }
     
     public double getNotaFinal() {
@@ -27,14 +29,20 @@ public class Materia {
 
     public void setNotaFinal(double nexamen, double ndeberes, double nlecciones, double ntalleres) {
         this.notaFinal = calcularNota(nexamen, ndeberes, nlecciones, ntalleres);
+        this.notaTotal = (getNotaFinal() + getNotaFinal())/2;
     }
 
     public void setNotaFinal(double notaFinal){
         this.notaFinal = notaFinal;
+        this.notaTotal = (notaInicial + getNotaFinal())/2;
     }
     
     public static double calcularNota(double nexamen, double ndeberes, double nlecciones, double ntalleres) {
-        double nota = (nexamen + ndeberes + nlecciones) * 0.80 + (ntalleres) * 0.20;
-        return nota;
+        return   (nexamen + ndeberes + nlecciones) * 0.80 + (ntalleres) * 0.20;
     }
+
+    public double getNotaTotal() {
+        return notaTotal;
+    }
+    
 }

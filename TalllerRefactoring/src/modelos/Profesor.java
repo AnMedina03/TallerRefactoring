@@ -3,22 +3,19 @@ package modelos;
 import java.util.ArrayList;
 
 public class Profesor {
-    public String codigo;
-    public Persona persona;
-    public InformacionAdicionalProfesor info;
-    public ArrayList<Paralelo> paralelos;
+    private String codigo;
+    private Persona persona;
+    private InformacionAdicionalProfesor info;
 
     public Profesor(String codigo, Persona persona) {
         this.codigo = codigo;
         this.persona = persona;
-        paralelos= new ArrayList<>();
     }
     
     public Profesor(String codigo, Persona persona, InformacionAdicionalProfesor info) {
         this.codigo = codigo;
         this.persona = persona;
         this.info = info;
-        paralelos= new ArrayList<>();
     }
 
     public InformacionAdicionalProfesor getInfo() {
@@ -30,7 +27,7 @@ public class Profesor {
     }
 
     public ArrayList<Paralelo> getParalelos() {
-        return paralelos;
+        return persona.getParalelos();
     }
 
     public Persona getPersona() {
@@ -45,8 +42,12 @@ public class Profesor {
         return codigo;
     }
     
-    public void anadirParalelos(Paralelo p){
-        paralelos.add(p);
+    public void agregarParalelo(Paralelo p){
+        persona.agregarParalelo(p);
+    }
+    
+    public void quitarParalelo(Paralelo p){
+        persona.quitarParalelo(p);
     }
     
 }

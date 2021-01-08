@@ -5,14 +5,17 @@
  */
 package modelos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Andrés Medina Jácome
  */
 public class Persona {
-    public String nombre, apellido, direccion, telefono;
-    public int edad;
-
+    private String nombre, apellido, direccion, telefono;
+    private int edad;
+    private ArrayList<Paralelo> paralelos;
+    
     public Persona(String nombre, String apellido, String direccion, String telefono, int edad) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -60,4 +63,27 @@ public class Persona {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+    
+    public boolean agregarParalelo(Paralelo p){
+        if(p == null){
+            return false;
+        }
+        if(paralelos.contains(p)){
+            return true;
+        }
+        getParalelos().add(p);
+        return true;
+    }
+    
+    public boolean quitarParalelo(Paralelo p){
+        if(p == null){
+            return false;
+        }
+        return paralelos.remove(p);
+    }
+    
+    public ArrayList<Paralelo> getParalelos(){
+        return paralelos;
+    }
+    
 }
