@@ -5,36 +5,48 @@ public class Materia {
     private String codigo;
     private String nombre;
     private Facultad facultad;
-    private double notaInicial;
-    private double notaFinal;
-    private double notaTotal;
+    private Nota notas;
+
+    public Materia(String codigo, String nombre, Facultad facultad, Nota notas) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.facultad = facultad;
+        this.notas = notas;
+    }
+
+    public Materia(String codigo, String nombre, Facultad facultad) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.facultad = facultad;
+        this.notas = new Nota();
+    }
 
     public double getNotaInicial() {
-        return notaInicial;
+        return notas.getNotaInicial();
     }
 
     public void setNotaInicial(double nexamen, double ndeberes, double nlecciones, double ntalleres) {
-        this.notaInicial = calcularNota(nexamen, ndeberes, nlecciones, ntalleres);
-        this.notaTotal = (getNotaFinal() + getNotaFinal())/2;
+        this.notas.setNotaInicial(calcularNota(nexamen, ndeberes, nlecciones, ntalleres));
+        this.notas.setNotaTotal((getNotaFinal() + getNotaFinal())/2);
     }
 
     public void setNotaInicial(double notaInicial){
-        this.notaInicial = notaInicial;
-        this.notaTotal = (notaInicial + getNotaFinal())/2;
+        this.notas.setNotaInicial(notaInicial);
+        this.notas.setNotaTotal((getNotaFinal() + getNotaFinal())/2);
     }
     
     public double getNotaFinal() {
-        return notaFinal;
+        return notas.getNotaFinal();
     }
 
     public void setNotaFinal(double nexamen, double ndeberes, double nlecciones, double ntalleres) {
-        this.notaFinal = calcularNota(nexamen, ndeberes, nlecciones, ntalleres);
-        this.notaTotal = (getNotaFinal() + getNotaFinal())/2;
+        this.notas.setNotaFinal(calcularNota(nexamen, ndeberes, nlecciones, ntalleres));
+        this.notas.setNotaTotal((getNotaFinal() + getNotaFinal())/2);
     }
 
     public void setNotaFinal(double notaFinal){
-        this.notaFinal = notaFinal;
-        this.notaTotal = (notaInicial + getNotaFinal())/2;
+        this.notas.setNotaFinal(notaFinal);
+        this.notas.setNotaTotal((getNotaFinal() + getNotaFinal())/2);
     }
     
     public static double calcularNota(double nexamen, double ndeberes, double nlecciones, double ntalleres) {
@@ -42,7 +54,7 @@ public class Materia {
     }
 
     public double getNotaTotal() {
-        return notaTotal;
+        return notas.getNotaTotal();
     }
     
 }

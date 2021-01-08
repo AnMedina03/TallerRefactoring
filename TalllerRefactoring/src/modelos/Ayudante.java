@@ -6,7 +6,7 @@ public class Ayudante {
     private Estudiante est;
     private ArrayList<Paralelo> paralelos;
     
-    Ayudante(Estudiante e){
+    public Ayudante(Estudiante e){
     	est = e;
     }
     

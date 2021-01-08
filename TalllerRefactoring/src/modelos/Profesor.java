@@ -17,7 +17,11 @@ public class Profesor {
         this.persona = persona;
         this.info = info;
     }
-
+    
+    public double calcularSueldo(){
+        return info.getAñosdeTrabajo() *600 + info.getBonoFijo();
+    }
+    
     public InformacionAdicionalProfesor getInfo() {
         return info;
     }
